@@ -1,0 +1,11 @@
+%estiloparrafo{
+    text-align: center;
+    font-family: cursive;
+    font-size: 25px;
+}
+
+@mixin fontStyle ($colorFonodo, $color, $padding) {
+background-color: $colorFonodo;
+color: $color;
+padding: $padding;    
+}

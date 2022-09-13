@@ -1,0 +1,17 @@
+.footer {
+    // estilos al footer
+    display: flex;
+    background: red;
+    justify-content: space-evenly;
+    min-height: 20vh;
+    &__ul {
+        // estilos de la ul
+        color: yellowgreen;
+img{
+    &:hover{
+        transform: scale(1.10) translate(5px, 5px);
+        transition: 1.5s;
+    }
+}
+    }
+}

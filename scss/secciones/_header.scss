@@ -1,0 +1,34 @@
+.header {
+    background: linear-gradient(to right, black, $colorPrincipal, black);
+    min-height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &__logo {
+        margin-left: 1rem;
+    }
+
+        &__ul {
+            // estilos a la ul
+            list-style: none;
+            display: flex;
+            align-items: flex-end;
+            margin: 5px;
+            padding: 5px;
+
+            li {
+                margin: 15px;
+
+                &:hover {
+                    font-weight: bolder;
+                }
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+
+    }
