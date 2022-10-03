@@ -46,9 +46,98 @@
       --bs-btn-disabled-border-color: white;
       --bs-gradient: none; }
 
-.main {
+.main-novedades {
   background-color: white;
   min-height: 80vh; }
+  .main-novedades h1 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px; }
+  .main-novedades h3 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px;
+    text-align: center; }
+  .main-novedades p {
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-size: 16px;
+    margin: 50px;
+    padding: 10px; }
+  .main-novedades .grid-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    grid-row-gap: 150px; }
+  .main-novedades .grid-container div {
+    width: 500px;
+    height: 500px; }
+  .main-novedades .grid-container img {
+    height: 500px; }
+
+.main-nuestraHistoria {
+  background-color: white;
+  min-height: 80vh; }
+  .main-nuestraHistoria h1 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px; }
+  .main-nuestraHistoria p {
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-size: 16px;
+    margin: 50px;
+    padding: 10px; }
+
+.main-eventos {
+  background-color: white;
+  min-height: 80vh; }
+  .main-eventos h1 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px; }
+  .main-eventos p {
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-size: 16px;
+    margin: 50px;
+    padding: 10px; }
+
+.main-contacto {
+  background-color: white;
+  min-height: 80vh; }
+  .main-contacto h1 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px; }
+  .main-contacto h3 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px;
+    text-align: center; }
+  .main-contacto p {
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-size: 16px;
+    margin: 50px;
+    padding: 10px; }
+  .main-contacto div.formulario {
+    display: flex;
+    justify-content: space-around; }
 
 .footer {
   display: grid;
