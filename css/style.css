@@ -82,6 +82,28 @@
   .main-novedades .grid-container img {
     height: 500px; }
 
+.main-comisiones {
+  background-color: white;
+  min-height: 80vh; }
+  .main-comisiones h1 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px; }
+  .main-comisiones h3 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px;
+    text-align: center; }
+  .main-comisiones p {
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-size: 16px;
+    margin: 50px;
+    padding: 10px; }
+
 .main-nuestraHistoria {
   background-color: white;
   min-height: 80vh; }
@@ -90,6 +112,12 @@
     justify-content: center;
     color: black;
     margin: 15px; }
+  .main-nuestraHistoria h3 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px;
+    text-align: center; }
   .main-nuestraHistoria p {
     display: flex;
     justify-content: space-around;
@@ -106,6 +134,12 @@
     justify-content: center;
     color: black;
     margin: 15px; }
+  .main-eventos h3 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin: 15px;
+    text-align: center; }
   .main-eventos p {
     display: flex;
     justify-content: space-around;
