@@ -19,4 +19,4 @@ function solicitarInfo() {
 }
 
 solicitarInfo()
-mostrarInfo();
+// mostrarInfo();
