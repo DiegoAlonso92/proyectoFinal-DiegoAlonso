@@ -5,7 +5,6 @@ saludar();
 
 const listaSocios = [];
 
-
 let numFuncionario = prompt("Ingresa tu número de funcionario:");
 let nombreIngresado = prompt("Ingresa tu nombre:");
 let apellidoIngresado = prompt("Ingresa tu apellido:");
@@ -19,9 +18,9 @@ if (afiliado != "si") {
 alert("Estos fueron los datos ingresados:                                                     " + "Nombre: " + nombreIngresado + "      " + "Apellido: " + apellidoIngresado + "      " + "Sucursal: " + sucursalIngresda + "      " + "Cargo: " + cargoIngresado + "      " + "Numero de funcionario: " + numFuncionario);
 
 
-//Ver como queda mejor, this.numFuncionario = parseFloat (numFuncionario);
 class SocioNum { 
-    constructor (nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado) {
+    constructor (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado) {
+        this.numFuncionario = parseFloat (numFuncionario);
         this.nombreIngresado = nombreIngresado,
         this.apellidoIngresado = apellidoIngresado,
         this.sucursalIngresda = sucursalIngresda,
@@ -30,7 +29,7 @@ class SocioNum {
     }
 }
 
-const socio = new SocioNum (nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado);
+const socio = new SocioNum (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado);
 
 
 function ingresarSocio () {
@@ -38,8 +37,17 @@ function ingresarSocio () {
 }
 ingresarSocio ();
 
+const socioJSON = JSON.stringify(socio);
+localStorage.setItem("socio", socioJSON);
 
-console.log(listaSocios);
+const socioEnLocalStorage = localStorage.getItem("socio");
+
+console.log(socioEnLocalStorage);
+
+
+// localStorage.setItem("socio", socio);
+
+// console.log(listaSocios);
 
 
 
