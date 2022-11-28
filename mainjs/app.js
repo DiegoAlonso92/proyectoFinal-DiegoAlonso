@@ -1,48 +1,48 @@
-function saludar() {
-    alert("bienvenido a nuestra web");
-}
-saludar();
+// function saludar() {
+//     alert("bienvenido a nuestra web");
+// }
+// saludar();
 
-const listaSocios = [];
+// const listaSocios = [];
 
-let numFuncionario = prompt("Ingresa tu número de funcionario:");
-let nombreIngresado = prompt("Ingresa tu nombre:");
-let apellidoIngresado = prompt("Ingresa tu apellido:");
-let sucursalIngresda = prompt("Ingresa el nombre de la sucursal donde trabajas:");
-let cargoIngresado = prompt("Ingresa el cargo que ejerces:");
-let afiliado = prompt("¿Eres afiliado al sindicato? responde con 'si / no':").toLowerCase();
-if (afiliado != "si") {
-    alert("Si te interesa ser parte de nuestro sindicato contacta a un integrante de nuestra mesa")
-};
+// let numFuncionario = prompt("Ingresa tu número de funcionario:");
+// let nombreIngresado = prompt("Ingresa tu nombre:");
+// let apellidoIngresado = prompt("Ingresa tu apellido:");
+// let sucursalIngresda = prompt("Ingresa el nombre de la sucursal donde trabajas:");
+// let cargoIngresado = prompt("Ingresa el cargo que ejerces:");
+// let afiliado = prompt("¿Eres afiliado al sindicato? responde con 'si / no':").toLowerCase();
+// if (afiliado != "si") {
+//     alert("Si te interesa ser parte de nuestro sindicato contacta a un integrante de nuestra mesa")
+// };
 
-alert("Estos fueron los datos ingresados:                                                     " + "Nombre: " + nombreIngresado + "      " + "Apellido: " + apellidoIngresado + "      " + "Sucursal: " + sucursalIngresda + "      " + "Cargo: " + cargoIngresado + "      " + "Numero de funcionario: " + numFuncionario);
-
-
-class SocioNum { 
-    constructor (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado) {
-        this.numFuncionario = parseFloat (numFuncionario);
-        this.nombreIngresado = nombreIngresado,
-        this.apellidoIngresado = apellidoIngresado,
-        this.sucursalIngresda = sucursalIngresda,
-        this.cargoIngresado = cargoIngresado,
-        this.afiliado = afiliado
-    }
-}
-
-const socio = new SocioNum (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado);
+// alert("Estos fueron los datos ingresados:                                                     " + "Nombre: " + nombreIngresado + "      " + "Apellido: " + apellidoIngresado + "      " + "Sucursal: " + sucursalIngresda + "      " + "Cargo: " + cargoIngresado + "      " + "Numero de funcionario: " + numFuncionario);
 
 
-function ingresarSocio () {
-    listaSocios.push(socio)
-}
-ingresarSocio ();
+// class SocioNum { 
+//     constructor (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado) {
+//         this.numFuncionario = parseFloat (numFuncionario);
+//         this.nombreIngresado = nombreIngresado,
+//         this.apellidoIngresado = apellidoIngresado,
+//         this.sucursalIngresda = sucursalIngresda,
+//         this.cargoIngresado = cargoIngresado,
+//         this.afiliado = afiliado
+//     }
+// }
 
-const socioJSON = JSON.stringify(socio);
-localStorage.setItem("socio", socioJSON);
+// const socio = new SocioNum (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado);
 
-const socioEnLocalStorage = localStorage.getItem("socio");
 
-console.log(socioEnLocalStorage);
+// function ingresarSocio () {
+//     listaSocios.push(socio)
+// }
+// ingresarSocio ();
+
+// const socioJSON = JSON.stringify(socio);
+// localStorage.setItem("socio", socioJSON);
+
+// const socioEnLocalStorage = localStorage.getItem("socio");
+
+// console.log(socioEnLocalStorage);
 
 
 // localStorage.setItem("socio", socio);
