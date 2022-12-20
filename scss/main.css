@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background: red;
+  min-height: 20vh;
+}
+.header .container-fluid {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.header .container-fluid .logoDePrueba {
+  width: 150px;
+  border-radius: 92px;
+  background-color: white;
+  padding: 2px 8px 2px 2px;
+}
+.header .container-fluid li a {
+  color: white;
+}
+.header .container-fluid .dropdown-item {
+  display: block;
+  width: 100%;
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+  clear: both;
+  font-weight: 400;
+  color: red !important;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+.header .container-fluid .btn-outline-success {
+  --bs-btn-color: white;
+  --bs-btn-border-color: white;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: white;
+  --bs-btn-hover-border-color: white;
+  --bs-btn-focus-shadow-rgb: 25,135,84;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: white;
+  --bs-btn-active-border-color: white;
+  --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: white;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: white;
+  --bs-gradient: none;
+}
+
+.main-novedades {
+  background-color: white;
+  min-height: 80vh;
+}
+.main-novedades h1 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+}
+.main-novedades h3 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+.main-novedades p {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  font-size: 16px;
+  margin: 50px;
+  padding: 10px;
+}
+.main-novedades .grid-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  grid-row-gap: 150px;
+}
+.main-novedades .grid-container div {
+  width: 300px;
+  height: 300px;
+}
+.main-novedades .grid-container img {
+  height: 300px;
+}
+
+.main-comisiones {
+  background-color: white;
+  min-height: 80vh;
+}
+.main-comisiones h1 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+}
+.main-comisiones h3 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+.main-comisiones p {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  font-size: 16px;
+  margin: 50px;
+  padding: 10px;
+}
+
+.main-nuestraHistoria {
+  background-color: white;
+  min-height: 80vh;
+}
+.main-nuestraHistoria h1 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+}
+.main-nuestraHistoria h3 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+.main-nuestraHistoria p {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  font-size: 16px;
+  margin: 50px;
+  padding: 10px;
+}
+
+.main-eventos {
+  background-color: white;
+  min-height: 80vh;
+}
+.main-eventos h1 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+}
+.main-eventos h3 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+.main-eventos p {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  font-size: 16px;
+  margin: 50px;
+  padding: 10px;
+}
+
+.main-contacto {
+  background-color: white;
+  min-height: 80vh;
+}
+.main-contacto h1 {
+  display: flex;
+  justify-content: center;
+  color: red;
+  margin: 15px;
+}
+.main-contacto h3 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+.main-contacto p {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  font-size: 16px;
+  margin: 50px;
+  padding: 10px;
+}
+
+#form {
+  display: flex;
+  justify-content: space-evenly;
+}
+#form input {
+  width: 700px;
+  height: 30px;
+  text-align: center;
+}
+#form button {
+  text-align: center;
+}
+
+.footer {
+  display: grid;
+  background: red;
+  justify-content: space-around;
+  min-height: 20vh;
+  justify-items: center;
+}
+.footer h5 {
+  color: white;
+}
+.footer__ul {
+  color: white;
+}
+.footer p {
+  color: white;
+}/*# sourceMappingURL=main.css.map */

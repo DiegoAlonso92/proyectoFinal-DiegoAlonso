@@ -141,9 +141,8 @@
     h1{
         display: flex;
         justify-content: center;
-        color: black;
+        color: red;
         margin: 15px;
-
     }
     h3{
         display: flex;
@@ -161,9 +160,17 @@
         margin: 50px;
         padding: 10px;
     }
-    div.formulario{
-        display: flex;
-        justify-content: space-around;
-    }
 }
 
+#form{
+    display: flex;
+    justify-content: space-evenly;
+    input{
+        width: 700px;
+        height: 30px;
+        text-align: center;
+}
+button{
+text-align: center; //resolver posición del boton
+}
+}
