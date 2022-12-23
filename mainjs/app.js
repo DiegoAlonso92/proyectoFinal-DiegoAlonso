@@ -1,56 +1,91 @@
-// function saludar() {
-//     alert("bienvenido a nuestra web");
-// }
-// saludar();
+//  Formulario con evento para guardar en LS los datos de nuevos socios.
 
-// const listaSocios = [];
+const myForm = document.querySelector('#my-form');
+const inputNumFunc = document.querySelector('#NumFunc');
+const inputNombre = document.querySelector('#Nombre')
+const inputApellido = document.querySelector('#Apellido');
+const inputSucursal = document.querySelector('#Sucursal');
+const inputCargo = document.querySelector('#Cargo');
+const btnEnviar = document.querySelector('#btnEnviar');
+// todo lo que almacenemos en local storage será guardado como string. 
+// (setitem es para guardar, getitem es para obtener la información que está guardada en LS).
+// JSON permite convertir los objetos a texto plano o string.
+//(JSON.stringfy() permite convertir un objeto o array a string )
 
-// let numFuncionario = prompt("Ingresa tu número de funcionario:");
-// let nombreIngresado = prompt("Ingresa tu nombre:");
-// let apellidoIngresado = prompt("Ingresa tu apellido:");
-// let sucursalIngresda = prompt("Ingresa el nombre de la sucursal donde trabajas:");
-// let cargoIngresado = prompt("Ingresa el cargo que ejerces:");
-// let afiliado = prompt("¿Eres afiliado al sindicato? responde con 'si / no':").toLowerCase();
-// if (afiliado != "si") {
-//     alert("Si te interesa ser parte de nuestro sindicato contacta a un integrante de nuestra mesa")
-// };
+let listaSocios = [];
+let listaSociosLS = JSON.parse(localStorage.getItem('listaSocios'));
+if (listaSocios.length === 0) {
+    listaSocios = listaSociosLS
+}
+console.log(listaSocios);
 
-// alert("Estos fueron los datos ingresados:                                                     " + "Nombre: " + nombreIngresado + "      " + "Apellido: " + apellidoIngresado + "      " + "Sucursal: " + sucursalIngresda + "      " + "Cargo: " + cargoIngresado + "      " + "Numero de funcionario: " + numFuncionario);
+if (listaSocios.length === 0){
+fetch("/mainjs/socios-activos.json")
+    .then(response => response.json())
+    .then(data => {        
+        localStorage.setItem ('listaSocios', JSON.stringify(data))
+        const dataEnLs = JSON.parse(localStorage.getItem('listaSocios'))
+    })
+}
 
-
-// class SocioNum { 
-//     constructor (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado) {
-//         this.numFuncionario = parseFloat (numFuncionario);
-//         this.nombreIngresado = nombreIngresado,
-//         this.apellidoIngresado = apellidoIngresado,
-//         this.sucursalIngresda = sucursalIngresda,
-//         this.cargoIngresado = cargoIngresado,
-//         this.afiliado = afiliado
-//     }
-// }
-
-// const socio = new SocioNum (numFuncionario, nombreIngresado, apellidoIngresado, sucursalIngresda, cargoIngresado, afiliado);
-
-
-// function ingresarSocio () {
-//     listaSocios.push(socio)
-// }
-// ingresarSocio ();
-
-// const socioJSON = JSON.stringify(socio);
-// localStorage.setItem("socio", socioJSON);
-
-// const socioEnLocalStorage = localStorage.getItem("socio");
-
-// console.log(socioEnLocalStorage);
-
-
-// localStorage.setItem("socio", socio);
-
-// console.log(listaSocios);
+myForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || inputSucursal.value === '' || inputCargo.value === '') {
+        return
+    }
+    const socioRepetido = listaSocios.some((user) => user.numero === inputNumFunc.value);
+    if (socioRepetido) {
+        alert('Ese número de socio ya está registrado.')
+        return
+    }
+    const socio = {
+        numero: inputNumFunc.value,
+        nombre: inputNombre.value,
+        apellido: inputApellido.value,
+        sucursal: inputSucursal.value,
+        cargo: inputCargo.value
+    }
+    listaSocios.push(socio)
+    localStorage.setItem('listaSocios', JSON.stringify(listaSocios))
+    myForm.reset()
+    console.log(listaSocios)
+})
 
 
 
+const myFormCanasta = document.querySelector('#my-form-canastas');
+const inputNumFuncCan = document.querySelector('#NumFuncCan');
+const inputNombreBebe = document.querySelector('#NombreBebe')
+const inputApellidosBebe = document.querySelector('#ApellidosBebe');
+const btnEnviarCan = document.querySelector('#btnEnviarCan');
 
-// la idea es crear un programa interactivo que le solicite al usuario Nombre; Apellido; Numero de funcionario; Si es o no es socio del sindicado; Sucursal donde trabaja; Cargo ejercido y luego mediante un alert le muestre los datos que ingresó.
-// como segundo avance del proyecto pretendo crear un Array que almacene la información ingresada por los usuarios.
+let listaCanasta = [];
+let listaCanastaLS = JSON.parse(localStorage.getItem('listaCanasta'));
+if (listaCanasta.length === 0) {
+    listaCanasta = listaCanastaLS
+}
+console.log(listaCanasta);
+    
+
+myFormCanasta.addEventListener('submit', (event) => {
+    event.preventDefault()
+    if (inputNumFuncCan.value === '' || inputNombreBebe.value === '' || inputApellidosBebe.value === '') {
+        return
+    }
+    const socioRepetido = listaCanasta.some((user) => user.numero === inputNumFuncCan.value);
+    
+    if (socioRepetido) {
+        alert('Ese número de socio ya ha solicitado la canasta.')
+        return
+    }
+    const socio = {
+        numero: inputNumFuncCan.value,
+        nombre_de_recien_nacido: inputNombreBebe.value,
+        apellidos_de_recien_nacido: inputApellidosBebe.value,
+    }
+    listaCanasta.push(socio)
+    localStorage.setItem('listaCanasta', JSON.stringify(listaCanasta))
+    myForm.reset()
+    console.log(listaCanasta)
+})
+// Agregar un fetch que permita corroborar si el numero de socio se encuentra en la lista de socios activos.
