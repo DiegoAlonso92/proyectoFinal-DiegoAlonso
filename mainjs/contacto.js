@@ -1,6 +1,5 @@
 //  Formulario con evento para guardar en LS los datos de nuevos socios.
-
-const myForm = document.querySelector('#my-form');
+const myForm = document.querySelector ('#my-form');
 const inputNumFunc = document.querySelector('#NumFunc');
 const inputNombre = document.querySelector('#Nombre')
 const inputApellido = document.querySelector('#Apellido');
@@ -11,7 +10,6 @@ const btnEnviar = document.querySelector('#btnEnviar');
 // (setitem es para guardar, getitem es para obtener la información que está guardada en LS).
 // JSON permite convertir los objetos a texto plano o string.
 //(JSON.stringfy() permite convertir un objeto o array a string )
-
 let listaSocios = [];
 let listaSociosLS = JSON.parse(localStorage.getItem('listaSocios'));
 if (listaSocios.length === 0) {
@@ -27,6 +25,7 @@ fetch("/mainjs/socios-activos.json")
         const dataEnLs = JSON.parse(localStorage.getItem('listaSocios'))
     })
 }
+
 
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -51,41 +50,39 @@ myForm.addEventListener('submit', (event) => {
     console.log(listaSocios)
 })
 
+// const myFormCanasta = document.querySelector('#my-form-canasta');
+// const inputNumFuncCan = document.querySelector('#NumFuncCan');
+// const inputNombreBebe = document.querySelector('#NombreBebe');
+// const inputApellidosBebe = document.querySelector('#ApellidosBebe');
+// const btnEnviarCan = document.querySelector('#btnEnviarCan');
 
-
-const myFormCanasta = document.querySelector('#my-form-canastas');
-const inputNumFuncCan = document.querySelector('#NumFuncCan');
-const inputNombreBebe = document.querySelector('#NombreBebe')
-const inputApellidosBebe = document.querySelector('#ApellidosBebe');
-const btnEnviarCan = document.querySelector('#btnEnviarCan');
-
-let listaCanasta = [];
-let listaCanastaLS = JSON.parse(localStorage.getItem('listaCanasta'));
-if (listaCanasta.length === 0) {
-    listaCanasta = listaCanastaLS
-}
-console.log(listaCanasta);
+// let listaCanasta = [];
+// let listaCanastaLS = JSON.parse(localStorage.getItem('listaCanasta'));
+// if (listaCanasta.length === 0) {
+//     listaCanasta = listaCanastaLS
+// }
+// console.log(myFormCanasta);
     
 
-myFormCanasta.addEventListener('submit', (event) => {
-    event.preventDefault()
-    if (inputNumFuncCan.value === '' || inputNombreBebe.value === '' || inputApellidosBebe.value === '') {
-        return
-    }
-    const socioRepetido = listaCanasta.some((user) => user.numero === inputNumFuncCan.value);
+// myFormCanasta.addEventListener('submit', (event) => {
+//     event.preventDefault()
+//     if (inputNumFuncCan.value === '' || inputNombreBebe.value === '' || inputApellidosBebe.value === '') {
+//         return
+//     }
+//     const socioRepetido = listaCanasta.some((user) => user.numero === inputNumFuncCan.value);
     
-    if (socioRepetido) {
-        alert('Ese número de socio ya ha solicitado la canasta.')
-        return
-    }
-    const socio = {
-        numero: inputNumFuncCan.value,
-        nombre_de_recien_nacido: inputNombreBebe.value,
-        apellidos_de_recien_nacido: inputApellidosBebe.value,
-    }
-    listaCanasta.push(socio)
-    localStorage.setItem('listaCanasta', JSON.stringify(listaCanasta))
-    myForm.reset()
-    console.log(listaCanasta)
-})
+//     if (socioRepetido) {
+//         alert('Ese número de socio ya ha solicitado la canasta.')
+//         return
+//     }
+//     const socio = {
+//         numero: inputNumFuncCan.value,
+//         nombre_de_recien_nacido: inputNombreBebe.value,
+//         apellidos_de_recien_nacido: inputApellidosBebe.value,
+//     }
+//     listaCanasta.push(socio)
+//     localStorage.setItem('listaCanasta', JSON.stringify(listaCanasta))
+//     myForm.reset()
+//     console.log(listaCanasta)
+// })
 // Agregar un fetch que permita corroborar si el numero de socio se encuentra en la lista de socios activos.
