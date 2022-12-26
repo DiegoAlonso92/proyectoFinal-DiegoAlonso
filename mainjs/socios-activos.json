@@ -1,6 +1,6 @@
 [
-    {"numero": "3347", "nombre": "Diego", "apellido": "Alonso", "sucursal": "Hospital italiano", "cargo": "Portero"},
-    {"numero": "4421", "nombre": "Patricia", "apellido": "Pereira", "sucursal": "Hospital italiano", "cargo": "Portera"},
-    {"numero": "5531", "nombre": "Walter", "apellido": "Apolo", "sucursal": "Hospital italiano", "cargo": "Portero"},
-    {"numero": "2851", "nombre": "Carlos", "apellido": "Souto", "sucursal": "Millán", "cargo": "Administrativo"}
+    {"numero": "3347", "nombre": "Diego", "apellido": "Alonso", "sucursal": "Hospital italiano", "cargo": "Portero", "email": "diego.alonso.uy@gmail.com", "telefono": "092755304"},
+    {"numero": "4421", "nombre": "Patricia", "apellido": "Pereira", "sucursal": "Hospital italiano", "cargo": "Portera", "email": "algo@gmail.com", "telefono": "099123456"},
+    {"numero": "5531", "nombre": "Walter", "apellido": "Apolo", "sucursal": "Hospital italiano", "cargo": "Portero", "email": "random@hotmail.com", "telefono": "093321654"},
+    {"numero": "2851", "nombre": "Carlos", "apellido": "Souto", "sucursal": "Millán", "cargo": "Administrativo", "email": "carlos@gmail.com", "telefono": "091223344"}
 ]

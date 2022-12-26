@@ -1,10 +1,12 @@
 //  Formulario con evento para guardar en LS los datos de nuevos socios.
-const myForm = document.querySelector ('#my-form');
+const myForm = document.querySelector('#my-form');
 const inputNumFunc = document.querySelector('#NumFunc');
 const inputNombre = document.querySelector('#Nombre')
 const inputApellido = document.querySelector('#Apellido');
 const inputSucursal = document.querySelector('#Sucursal');
 const inputCargo = document.querySelector('#Cargo');
+const inputMail = document.querySelector('#Mail');
+const inputTel = document.querySelector('#Tel');
 const btnEnviar = document.querySelector('#btnEnviar');
 // todo lo que almacenemos en local storage será guardado como string. 
 // (setitem es para guardar, getitem es para obtener la información que está guardada en LS).
@@ -12,13 +14,12 @@ const btnEnviar = document.querySelector('#btnEnviar');
 //(JSON.stringfy() permite convertir un objeto o array a string )
 let listaSocios = [];
 let listaSociosLS = JSON.parse(localStorage.getItem('listaSocios'));
-if (listaSocios.length === 0) {
+if (listaSocios === 0 || listaSociosLS !== null) {
     listaSocios = listaSociosLS
 }
-console.log(listaSocios);
-
-if (listaSocios.length === 0){
-fetch("/mainjs/socios-activos.json")
+listaSociosLS
+if (listaSocios === 0 || listaSociosLS !== null){
+    fetch("/mainjs/socios-activos.json")
     .then(response => response.json())
     .then(data => {        
         localStorage.setItem ('listaSocios', JSON.stringify(data))
@@ -26,10 +27,11 @@ fetch("/mainjs/socios-activos.json")
     })
 }
 
+console.log(listaSocios);
 
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || inputSucursal.value === '' || inputCargo.value === '') {
+    if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || inputSucursal.value === '' || inputCargo.value === '' || inputMail.value === '' || inputTel.value === '') {
         return
     }
     const socioRepetido = listaSocios.some((user) => user.numero === inputNumFunc.value);
@@ -37,12 +39,22 @@ myForm.addEventListener('submit', (event) => {
         alert('Ese número de socio ya está registrado.')
         return
     }
+
+    const mailRepetido = listaSocios.some((user) => user.email === inputMail.value);
+    if (mailRepetido) {
+        alert('Ese Email ya se encuentra registrado.')
+        return
+    }
+
+
     const socio = {
         numero: inputNumFunc.value,
         nombre: inputNombre.value,
         apellido: inputApellido.value,
         sucursal: inputSucursal.value,
-        cargo: inputCargo.value
+        cargo: inputCargo.value,
+        email: inputMail.value,
+        telefono: inputTel.value
     }
     listaSocios.push(socio)
     localStorage.setItem('listaSocios', JSON.stringify(listaSocios))
