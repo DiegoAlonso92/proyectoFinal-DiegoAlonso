@@ -1,5 +1,5 @@
 //  Formulario con evento para guardar en LS los datos de nuevos socios.
-const myForm = document.querySelector('#my-form');
+const myForm = document.querySelector('#myForm');
 const inputNumFunc = document.querySelector('#NumFunc');
 const inputNombre = document.querySelector('#Nombre')
 const inputApellido = document.querySelector('#Apellido');
@@ -31,18 +31,29 @@ console.log(listaSocios);
 
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
+ 
     if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || inputSucursal.value === '' || inputCargo.value === '' || inputMail.value === '' || inputTel.value === '') {
         return
     }
     const socioRepetido = listaSocios.some((user) => user.numero === inputNumFunc.value);
     if (socioRepetido) {
-        alert('Ese número de socio ya está registrado.')
+        Swal.fire({
+            title: 'Error!',
+            text: 'Ese número de socio ya está registrado.',
+            icon: 'error',
+            confirmButtonText: 'Entendido'
+          })
         return
     }
 
     const mailRepetido = listaSocios.some((user) => user.email === inputMail.value);
     if (mailRepetido) {
-        alert('Ese Email ya se encuentra registrado.')
+        Swal.fire({
+            title: 'Error!',
+            text: 'Ese Email ya se encuentra registrado.',
+            icon: 'error',
+            confirmButtonText: 'Entendido'
+          })
         return
     }
 

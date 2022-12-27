@@ -29,7 +29,12 @@ myFormCanasta.addEventListener('submit', (event) => {
     const socioRepetido = listaCanasta.some((user) => user.numero === inputNumFuncCan.value);
     
     if (socioRepetido) {
-        alert('Ese número de socio ya ha solicitado la canasta.')
+        Swal.fire({
+            title: 'Error!',
+            text: 'Ese número de socio ya ha solicitado la canasta.',
+            icon: 'error',
+            confirmButtonText: 'Entendido'
+          })
         return
     }
     const socio = {
