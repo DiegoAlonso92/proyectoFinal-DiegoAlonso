@@ -16,15 +16,14 @@ const btnEnviar = document.querySelector('#btnEnviar');
 
 
 const listaSocios = JSON.parse(localStorage.getItem('listaSocios'));
-const listaSociosLS = JSON.parse(localStorage.getItem('listaSocios'));
 
         fetch("../mainjs/socios-activos.json")
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem('listaSocios', JSON.stringify(data))
                 JSON.parse(localStorage.getItem('listaSocios'))
-                console.log(listaSocios)
             })
+            .then(console.log(listaSocios))
 
 
 
