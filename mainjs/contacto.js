@@ -22,8 +22,8 @@ const listaSocios = JSON.parse(localStorage.getItem('listaSocios'));
             .then(data => {
                 localStorage.setItem('listaSocios', JSON.stringify(data))
                 JSON.parse(localStorage.getItem('listaSocios'))
+                console.log(listaSocios)
             })
-            .then(console.log(listaSocios))
 
 
 
