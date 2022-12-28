@@ -4,3 +4,5 @@
     {"numero": "5531", "nombre": "Walter", "apellido": "Apolo", "sucursal": "Hospital italiano", "cargo": "Portero", "email": "random@hotmail.com", "telefono": "093321654"},
     {"numero": "2851", "nombre": "Carlos", "apellido": "Souto", "sucursal": "Millán", "cargo": "Administrativo", "email": "carlos@gmail.com", "telefono": "091223344"}
 ]
+
+Este archivo sirve como base de datos interna ya que aún no 

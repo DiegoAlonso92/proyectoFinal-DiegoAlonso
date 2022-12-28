@@ -15,28 +15,17 @@ const btnEnviar = document.querySelector('#btnEnviar');
 
 
 
-let listaSocios = [];
+const listaSocios = JSON.parse(localStorage.getItem('listaSocios'));
 const listaSociosLS = JSON.parse(localStorage.getItem('listaSocios'));
-function addListaSocios() {
-    if (listaSocios === 0 || listaSocios === null || listaSocios === '') {
-        listaSocios = listaSociosLS
-    }
-    else if (listaSociosLS === 0 || listaSociosLS === null || listaSociosLS === '') {
+
         fetch("/mainjs/socios-activos.json")
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem('listaSocios', JSON.stringify(data))
                 JSON.parse(localStorage.getItem('listaSocios'))
             })
-    }
-}
-addListaSocios();
 
 console.log(listaSocios);
-
-
-
-
 
 
 
