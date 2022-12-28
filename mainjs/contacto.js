@@ -18,7 +18,7 @@ const btnEnviar = document.querySelector('#btnEnviar');
 const listaSocios = JSON.parse(localStorage.getItem('listaSocios'));
 const listaSociosLS = JSON.parse(localStorage.getItem('listaSocios'));
 
-        fetch("/mainjs/socios-activos.json")
+        fetch("../mainjs/socios-activos.json")
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem('listaSocios', JSON.stringify(data))
