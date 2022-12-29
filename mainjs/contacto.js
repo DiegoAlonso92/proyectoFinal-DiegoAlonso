@@ -1,4 +1,4 @@
-//  Formulario con evento para guardar en LS los datos de nuevos socios.
+
 const myForm = document.querySelector('#myForm');
 const inputNumFunc = document.querySelector('#NumFunc');
 const inputNombre = document.querySelector('#Nombre')
@@ -8,26 +8,18 @@ const inputCargo = document.querySelector('#Cargo');
 const inputMail = document.querySelector('#Mail');
 const inputTel = document.querySelector('#Tel');
 const btnEnviar = document.querySelector('#btnEnviar');
-// todo lo que almacenemos en local storage será guardado como string. 
-// (setitem es para guardar, getitem es para obtener la información que está guardada en LS).
-// JSON permite convertir los objetos a texto plano o string.
-//(JSON.stringfy() permite convertir un objeto o array a string )
 
+fetch("../mainjs/socios-activos.json")
+    .then(response => response.json())
+    .then(data => {
+        localStorage.setItem('listaSocios', JSON.stringify(data))
+        listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
+        console.log(listaSocios)
+    })
+    
 
-
-const listaSocios = JSON.parse(localStorage.getItem('listaSocios'));
-
-        fetch("../mainjs/socios-activos.json")
-            .then(response => response.json())
-            .then(data => {
-                localStorage.setItem('listaSocios', JSON.stringify(data))
-                JSON.parse(localStorage.getItem('listaSocios'))
-                console.log(listaSocios)
-            })
-
-
-
-
+    
+    //  Formulario con evento para guardar en LS los datos de nuevos socios.
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
