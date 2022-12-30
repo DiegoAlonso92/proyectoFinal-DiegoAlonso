@@ -102,23 +102,34 @@
         <div class="col-3">
 
           <form id="myForm">
-            <input id="NumFunc" class="form-control" type="text" placeholder="Numero de funcionario"
+            <input id="NumFunc" class="form-control" type="text" minlength="4" maxlength="4" placeholder="Numero de funcionario"
               name="Numero de funcionario">
             <br>
             <input id="Nombre" class="form-control" type="text" placeholder="Nombre" name="Nombre">
             <br>
             <input id="Apellido" class="form-control" type="text" placeholder="Apellido" name="Apellido">
             <br>
-            <input id="Sucursal" class="form-control" type="text" placeholder="Sucursal" name="Sucursal">
-            <br>
             <input id="Cargo" class="form-control" type="text" placeholder="Cargo" name="Cargo">
             <br>
             <input id="Mail" class="form-control" type="email" placeholder="Email" name="Email">
             <br>
-            <input id="Tel" class="form-control" type="tel" placeholder="Telefono" name="Tel">
+            <input id="Tel" class="form-control" type="tel" minlength="9" maxlength="9" placeholder="Telefono" name="Tel">
+            <br>
+            <label for="SucursalItaliano">Hospital italiano.</label>
+            <input id="SucursalItaliano" type="radio" name="Sucursal" value="Hospital italiano">
+           
+            <label for="SucursalMillan">Millán.</label>
+            <input id="SucursalMillan" type="radio" name="Sucursal" value="Millán">
+           
+            <label for="SucursalCurva">Curva de Maroñas.</label>
+            <input id="SucursalCurva" type="radio" name="Sucursal" value="Curva de Maroñas">
+
+            <br>
             <br>
             <button id="btnEnviar" class="btn btn-danger" type="submit" >Enviar</button>
-            </form>
+            <button id="btnReset" class="btn btn-danger" type="reset" >Restablecer</button>
+
+          </form>
         </div>
       </div>
     </div>

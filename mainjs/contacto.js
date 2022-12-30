@@ -3,11 +3,15 @@ const myForm = document.querySelector('#myForm');
 const inputNumFunc = document.querySelector('#NumFunc');
 const inputNombre = document.querySelector('#Nombre')
 const inputApellido = document.querySelector('#Apellido');
-const inputSucursal = document.querySelector('#Sucursal');
 const inputCargo = document.querySelector('#Cargo');
 const inputMail = document.querySelector('#Mail');
 const inputTel = document.querySelector('#Tel');
+const inputSucursalItaliano = document.querySelector('#SucursalItaliano');
+const inputSucursalMillan = document.querySelector('#SucursalMillan');
+const inputSucursalCurva = document.querySelector('#SucursalCurva');
 const btnEnviar = document.querySelector('#btnEnviar');
+const btnReset = document.querySelector('#btnReset');
+
 
 fetch("../mainjs/socios-activos.json")
     .then(response => response.json())
@@ -23,7 +27,7 @@ fetch("../mainjs/socios-activos.json")
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || inputSucursal.value === '' || inputCargo.value === '' || inputMail.value === '' || inputTel.value === '') {
+    if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || (inputSucursalItaliano.value === '' || inputSucursalMillan.value === '' || inputSucursalCurva.value === '') || inputCargo.value === '' || inputMail.value === '' || inputTel.value === '') {
         return
     }
     const socioRepetido = listaSocios.some((user) => user.numero === inputNumFunc.value);
@@ -53,7 +57,7 @@ myForm.addEventListener('submit', (event) => {
         numero: inputNumFunc.value,
         nombre: inputNombre.value,
         apellido: inputApellido.value,
-        sucursal: inputSucursal.value,
+        sucursal: (inputSucursalItaliano.value || inputSucursalMillan || inputSucursalCurva),
         cargo: inputCargo.value,
         email: inputMail.value,
         telefono: inputTel.value
