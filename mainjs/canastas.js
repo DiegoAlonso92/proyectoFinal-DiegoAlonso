@@ -5,21 +5,27 @@ const inputNombreBebe = document.querySelector('#NombreBebe');
 const inputApellidosBebe = document.querySelector('#ApellidosBebe');
 const btnEnviarCan = document.querySelector('#btnEnviarCan');
 
-fetch("../mainjs/socios-activos.json")
-    .then(response => response.json())
-    .then(data => {
-        localStorage.setItem('listaSocios', JSON.stringify(data))
-        listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
-        console.log(listaSocios)
-    })
+fetch("../mainjs/canastas-confirmadas.json")
+.then(response => response.json())
+.then(data => {
+    localStorage.setItem('listaCanasta', JSON.stringify(data))
+    listaCanasta = JSON.parse(localStorage.getItem('listaCanasta'))
+    console.log(listaCanasta)
+})
 
-    fetch("../mainjs/canastas-confirmadas.json")
-    .then(response => response.json())
-    .then(data => {
-        localStorage.setItem('listaCanasta', JSON.stringify(data))
-        listaCanasta = JSON.parse(localStorage.getItem('listaCanasta'))
-        console.log(listaCanasta)
-    })
+// if (localStorage.length === 0) {
+//     fetch("../mainjs/socios-activos.json")
+//         .then(response => response.json())
+//         .then(data => {
+//             localStorage.setItem('listaSocios', JSON.stringify(data))
+//             listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
+//             console.log(listaSocios)
+//         })
+// } else if (localStorage.length !== 0) {
+//     console.log(listaSocios)
+// }
+
+
 
 
 myFormCanasta.addEventListener('submit', (event) => {

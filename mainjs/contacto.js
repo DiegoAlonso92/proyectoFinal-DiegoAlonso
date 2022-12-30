@@ -12,10 +12,9 @@ const inputSucursalCurva = document.querySelector('#SucursalCurva');
 const btnEnviar = document.querySelector('#btnEnviar');
 const btnReset = document.querySelector('#btnReset');
 
-
 let listaSocios = []; //GLOBAL
 
-if (listaSocios.length === 0) {
+if (localStorage.length === 0) {
     fetch("../mainjs/socios-activos.json")
         .then(response => response.json())
         .then(data => {
@@ -23,10 +22,9 @@ if (listaSocios.length === 0) {
             listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
             console.log(listaSocios)
         })
-} else if (listaSocios.length !== 0) {
+} else if (localStorage.length !== 0) {
     console.log(listaSocios)
 }
-
 
 //  Formulario con evento para guardar en LS los datos de nuevos socios.
 myForm.addEventListener('submit', (event) => {
@@ -56,6 +54,20 @@ myForm.addEventListener('submit', (event) => {
         })
         return
     }
+
+    const crearSocio = (numero, nombre, apellido, sucursal, cargo, email, telefono) => {
+        const socio = {
+            numero: numero,
+            nombre: nombre,
+            apellido: apellido,
+            sucursal: sucursal,
+            cargo: cargo,
+            email: email,
+            telefono: telefono
+        }
+        listaSocios.push(socio)
+    }
+
     if (inputSucursalItaliano.checked) {
         crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalItaliano.value, inputCargo.value, inputMail.value)
     } else if (inputSucursalMillan.checked) {
@@ -68,15 +80,3 @@ myForm.addEventListener('submit', (event) => {
     console.log(listaSocios)
 })
 
-const crearSocio = (numero, nombre, apellido, sucursal, cargo, email, telefono) => {
-    const socio = {
-        numero: numero,
-        nombre: nombre,
-        apellido: apellido,
-        sucursal: sucursal,
-        cargo: cargo,
-        email: email,
-        telefono: telefono
-    }
-    listaSocios.push(socio)
-}
