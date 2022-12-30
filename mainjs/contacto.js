@@ -13,21 +13,26 @@ const btnEnviar = document.querySelector('#btnEnviar');
 const btnReset = document.querySelector('#btnReset');
 
 
-fetch("../mainjs/socios-activos.json")
-    .then(response => response.json())
-    .then(data => {
-        localStorage.setItem('listaSocios', JSON.stringify(data))
-        listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
-        console.log(listaSocios)
-    })
+let listaSocios = []; //GLOBAL
 
+if (listaSocios.length === 0) {
+    fetch("../mainjs/socios-activos.json")
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem('listaSocios', JSON.stringify(data))
+            listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
+            console.log(listaSocios)
+        })
+} else if (listaSocios.length !== 0) {
+    console.log(listaSocios)
+}
 
 
 //  Formulario con evento para guardar en LS los datos de nuevos socios.
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || (inputSucursalItaliano.value === '' || inputSucursalMillan.value === '' || inputSucursalCurva.value === '') || inputCargo.value === '' || inputMail.value === '' || inputTel.value === '') {
+    if (inputNumFunc.value === '' || inputNombre.value === '' || inputApellido.value === '' || inputCargo.value === '' || inputMail.value === '' || inputTel.value === '') {
         return
     }
     const socioRepetido = listaSocios.some((user) => user.numero === inputNumFunc.value);
@@ -58,7 +63,6 @@ myForm.addEventListener('submit', (event) => {
     } else if (inputSucursalCurva.checked) {
         crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalCurva.value, inputCargo.value, inputMail.value)
     }
-
     localStorage.setItem('listaSocios', JSON.stringify(listaSocios))
     myForm.reset()
     console.log(listaSocios)
