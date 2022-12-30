@@ -20,10 +20,10 @@ fetch("../mainjs/socios-activos.json")
         listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
         console.log(listaSocios)
     })
-    
 
-    
-    //  Formulario con evento para guardar en LS los datos de nuevos socios.
+
+
+//  Formulario con evento para guardar en LS los datos de nuevos socios.
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -51,19 +51,28 @@ myForm.addEventListener('submit', (event) => {
         })
         return
     }
-
-
-    const socio = {
-        numero: inputNumFunc.value,
-        nombre: inputNombre.value,
-        apellido: inputApellido.value,
-        sucursal: (inputSucursalItaliano.value || inputSucursalMillan || inputSucursalCurva),
-        cargo: inputCargo.value,
-        email: inputMail.value,
-        telefono: inputTel.value
+    if (inputSucursalItaliano.checked) {
+        crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalItaliano.value, inputCargo.value, inputMail.value)
+    } else if (inputSucursalMillan.checked) {
+        crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalMillan.value, inputCargo.value, inputMail.value)
+    } else if (inputSucursalCurva.checked) {
+        crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalCurva.value, inputCargo.value, inputMail.value)
     }
-    listaSocios.push(socio)
+
     localStorage.setItem('listaSocios', JSON.stringify(listaSocios))
     myForm.reset()
     console.log(listaSocios)
 })
+
+const crearSocio = (numero, nombre, apellido, sucursal, cargo, email, telefono) => {
+    const socio = {
+        numero: numero,
+        nombre: nombre,
+        apellido: apellido,
+        sucursal: sucursal,
+        cargo: cargo,
+        email: email,
+        telefono: telefono
+    }
+    listaSocios.push(socio)
+}
