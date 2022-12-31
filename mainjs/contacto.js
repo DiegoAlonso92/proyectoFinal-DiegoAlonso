@@ -14,7 +14,7 @@ const btnReset = document.querySelector('#btnReset');
 
 let listaSocios = []; //GLOBAL
 
-if (localStorage.length === 0) {
+if (!localStorage.getItem('listaSocios')) {
     fetch("../mainjs/socios-activos.json")
         .then(response => response.json())
         .then(data => {
@@ -22,7 +22,8 @@ if (localStorage.length === 0) {
             listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
             console.log(listaSocios)
         })
-} else if (localStorage.length !== 0) {
+} else if (localStorage.getItem('listaSocios')) {
+    listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
     console.log(listaSocios)
 }
 

@@ -101,7 +101,7 @@
                 <div class="col-3">
 
                     <form id="myFormCanasta">
-                        <input id="NumFuncCan" class="form-control" type="text" placeholder="Número de funcionario"
+                        <input id="NumFuncCan" class="form-control" type="text" minlength="4" maxlength="4" placeholder="Número de funcionario"
                             name="Numero de funcionario">
                         <br>
                         <input id="NombreBebe" class="form-control" type="text" placeholder="Nombre del recién nacido"
@@ -111,6 +111,8 @@
                             placeholder="Apellidos del recién nacido" name="Apellidos del recién nacido">
                         <br>
                         <button id="btnEnviarCan" class="btn btn-danger" type="submit">Enviar</button>
+                        <button id="btnResetCan" class="btn btn-danger" type="reset" >Restablecer</button>
+
                     </form>
                 </div>
             </div>

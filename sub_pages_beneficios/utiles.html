@@ -90,20 +90,44 @@
 
     <main class="main-comisiones">
         <h1>¡ Bienvenid@s a nuestro sitio Web !</h1>
-        <p>Muy pronto podras completar un formulario para solicitar los útiles escolares.</p>
+        <h3>Solicita aquí el beneficio de útiles escolares.</h3>
+        <p>
+            Les recordamos a nuestros socios que deberán presentar 
+            <br>
+            documento de identidad y certificado de inscripción de estudios
+            <br>
+            para obtener el beneficio.
+        </p>
    
         <div class="container">
             <div class="row">
                 <div class="col-3">
 
                     <form id="myFormUtiles">
-                        <input id="NumFuncUtiles" class="form-control" type="text" placeholder="Número de funcionario"
+                        <input id="NumFuncUtiles" class="form-control" type="text" minlength="4" maxlength="4" placeholder="Número de funcionario"
                             name="Numero de funcionario">
                         <br>
-                        <input id="nivelEstudio" class="form-control" type="datetime-local" placeholder="Selecciona el nivel de estudio"
-                            name="Nivel de estudio">
+                        <input id="Edad" class="form-control" type="text" minlength="1" maxlength="2" min="3" max="18" placeholder="Edad"
+                        name="Edad">
+                        <label for="Jardín">Jardín.</label>
+                        <input id="Jardín" type="radio" name="Nivel de estudio" value="Jardín">
+                       
+                        <label for="Primaria">Primaria.</label>
+                        <input id="Primaria" type="radio" name="Nivel de estudio" value="Primaria">
+                       
+                        <label for="SecundariaCicloBasico">Secundaria ciclo básico.</label>
+                        <input id="SecundariaCicloBasico" type="radio" name="Nivel de estudio" value="Secundaria ciclo basico">
+            
+                        <label for="SecundariaBachillerato">Secundaria bachillerato.</label>
+                        <input id="SecundariaBachillerato" type="radio" name="Nivel de estudio" value="Secundaria bachillerato">
+
                         <br>
+                        <br>            
                         <button id="btnEnviarUtiles" class="btn btn-danger" type="submit">Enviar</button>
+                        <button id="btnResetCanUtiles" class="btn btn-danger" type="reset" >Restablecer</button>
+                        <br>
+                        <br>
+                        <br>
                     </form>
                 </div>
             </div>
