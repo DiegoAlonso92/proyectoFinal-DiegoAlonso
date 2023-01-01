@@ -13,6 +13,8 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b89b1c75bc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="../mainjs/alquilerSalon.js"></script>    
 </head>
 
 <body>
@@ -42,12 +44,14 @@
                                 Comisiones
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../sub_pages_comisiones/equidadGenero.html">Equidad y género</a></li>
+                                <li><a class="dropdown-item" href="../sub_pages_comisiones/equidadGenero.html">Equidad y
+                                        género</a></li>
                                 <li><a class="dropdown-item" href="#">Opcional</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="../sub_pages_comisiones/saludLaboral.html">Salud laboral</a></li>
+                                <li><a class="dropdown-item" href="../sub_pages_comisiones/saludLaboral.html">Salud
+                                        laboral</a></li>
                                 <li><a class="dropdown-item" href="#">Opcional</a></li>
                             </ul>
                         </li>
@@ -57,13 +61,17 @@
                                 Beneficios
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../sub_pages_beneficios/canastas.html">Canasta recién nacidos</a></li>
-                                <li><a class="dropdown-item" href="../sub_pages_beneficios/utiles.html">Útiles escolares</a></li>
+                                <li><a class="dropdown-item" href="../sub_pages_beneficios/canastas.html">Canasta recién
+                                        nacidos</a></li>
+                                <li><a class="dropdown-item" href="../sub_pages_beneficios/utiles.html">Útiles
+                                        escolares</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="../sub_pages_beneficios/salon.html">Alquiler de salón</a></li>
-                                <li><a class="dropdown-item" href="../sub_pages_beneficios/capacitaciones.html">Capacitaciones</a></li>
+                                <li><a class="dropdown-item" href="../sub_pages_beneficios/salon.html">Alquiler de
+                                        salón</a></li>
+                                <li><a class="dropdown-item"
+                                        href="../sub_pages_beneficios/capacitaciones.html">Capacitaciones</a></li>
                             </ul>
                         </li>
 
@@ -89,6 +97,37 @@
     <main class="main-comisiones">
         <h1>¡ Bienvenid@s a nuestro sitio Web !</h1>
         <p>Muy pronto podras completar un formulario para la reserva del salón de eventos.</p>
+        <br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+
+                    <form id="myFormSalon">
+                        <input id="NumFuncSalon" class="form-control" type="number" minlength="4" maxlength="4" placeholder="Numero de funcionario" name="Numero de funcionario">
+                        <br>
+                        <input id="Nombre" class="form-control" type="text" placeholder="Nombre" name="Nombre">
+                        <br>
+                        <input id="Apellido" class="form-control" type="text" placeholder="Apellido" name="Apellido">
+                        <br>
+                        <input id="Mail" class="form-control" type="email" placeholder="Email" name="Email">
+                        <br>
+                        <input id="Tel" class="form-control" type="tel" minlength="9" maxlength="9"
+                            placeholder="Telefono" name="Tel">
+                        <br>
+                        <input id="Fecha" class="form-control" type="datetime-local" min="2023-01-01 T10:00" max="2023-12-15 T23:00" name="Fecha">
+                        <br>
+                        <br>
+                        <br>
+                        <button id="btnEnviarSalon" class="btn btn-danger" type="submit">Enviar</button>
+                        <button id="btnResetSalon" class="btn btn-danger" type="reset">Restablecer</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+
     </main>
 
     <footer class="footer">
