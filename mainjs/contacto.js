@@ -11,7 +11,7 @@ const inputSucursalMillan = document.querySelector('#SucursalMillan');
 const inputSucursalCurva = document.querySelector('#SucursalCurva');
 const btnEnviar = document.querySelector('#btnEnviar');
 const btnReset = document.querySelector('#btnReset');
-// const ParrafoSociosRegistrados = document.
+const parrafoSociosRegistrados = document.querySelector('#ParrafoSociosRegistrados');
 
 
 if (!localStorage.getItem('listaSocios')) {
@@ -71,15 +71,58 @@ myForm.addEventListener('submit', (event) => {
         listaSocios.push(socio)
     }
 
-    if (inputSucursalItaliano.checked) {
-        crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalItaliano.value, inputCargo.value, inputMail.value)
-    } else if (inputSucursalMillan.checked) {
-        crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalMillan.value, inputCargo.value, inputMail.value)
-    } else if (inputSucursalCurva.checked) {
-        crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalCurva.value, inputCargo.value, inputMail.value)
-    }
-    localStorage.setItem('listaSocios', JSON.stringify(listaSocios))
-    myForm.reset()
-    console.log(listaSocios)
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Confirma la solicitud?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Usuario registrado',
+                'Su solicitud ha sido realizada.'
+            )
+            if (inputSucursalItaliano.checked) {
+                crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalItaliano.value, inputCargo.value, inputMail.value)
+            } else if (inputSucursalMillan.checked) {
+                crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalMillan.value, inputCargo.value, inputMail.value)
+            } else if (inputSucursalCurva.checked) {
+                crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalCurva.value, inputCargo.value, inputMail.value)
+            }
+            localStorage.setItem('listaSocios', JSON.stringify(listaSocios))
+            myForm.reset()
+            console.log(listaSocios)
+
+
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelar',
+                'La solicitud ha sido cancelada.'
+            )
+        }
+    })
 })
 
+
+function mostrarSocios() {
+    // let listaSociosGet = localStorage.getItem('listaSocios', listaSocios);
+    let listaSociosParse = JSON.parse(localStorage.getItem('listaSocios'))
+     console.log(listaSociosParse);
+    let inner = parrafoSociosRegistrados.innerHTML(listaSocios);
+    inner;
+}
+
+mostrarSocios();
