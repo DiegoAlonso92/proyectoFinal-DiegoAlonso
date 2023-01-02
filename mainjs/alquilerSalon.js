@@ -50,7 +50,8 @@ myFormSalon.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese número de socio no está activo.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }
@@ -62,7 +63,8 @@ myFormSalon.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese número de socio ya tiene una reserva.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }

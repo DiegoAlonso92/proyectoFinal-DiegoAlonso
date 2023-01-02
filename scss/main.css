@@ -12073,6 +12073,25 @@ textarea.form-control-lg {
   margin: 50px;
   padding: 10px;
 }
+.main-contacto .scroll-bg {
+  background: rgb(234, 170, 170);
+  width: 500px;
+  margin: 0% auto;
+  padding: 40px;
+  border-radius: 40px;
+}
+.main-contacto .scroll-div {
+  background: rgb(244, 188, 188);
+  height: 400px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.main-contacto .scroll-object {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 20px;
+}
 
 #form {
   display: flex;

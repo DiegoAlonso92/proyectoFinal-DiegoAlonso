@@ -47,7 +47,8 @@ myFormCanasta.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese número de socio no está activo.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }
@@ -59,7 +60,8 @@ myFormCanasta.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese número de socio ya ha solicitado la canasta.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }

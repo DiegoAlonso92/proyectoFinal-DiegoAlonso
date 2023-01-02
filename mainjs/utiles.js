@@ -48,7 +48,8 @@ myFormUtiles.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese número de socio no está activo.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }
@@ -60,7 +61,8 @@ myFormUtiles.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese número de socio ya ha solicitado el  beneficio.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }

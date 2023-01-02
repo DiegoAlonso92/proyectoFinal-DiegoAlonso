@@ -11,8 +11,8 @@ const inputSucursalMillan = document.querySelector('#SucursalMillan');
 const inputSucursalCurva = document.querySelector('#SucursalCurva');
 const btnEnviar = document.querySelector('#btnEnviar');
 const btnReset = document.querySelector('#btnReset');
+// const ParrafoSociosRegistrados = document.
 
-let listaSocios = []; //GLOBAL
 
 if (!localStorage.getItem('listaSocios')) {
     fetch("../mainjs/socios-activos.json")
@@ -40,7 +40,8 @@ myForm.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese número de socio ya está registrado.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }
@@ -51,7 +52,8 @@ myForm.addEventListener('submit', (event) => {
             title: 'Error!',
             text: 'Ese Email ya se encuentra registrado.',
             icon: 'error',
-            confirmButtonText: 'Entendido'
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: 'red'
         })
         return
     }
