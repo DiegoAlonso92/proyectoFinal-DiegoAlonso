@@ -30,10 +30,12 @@ if (!localStorage.getItem('listaAlqSalon')) {
             localStorage.setItem('listaAlqSalon', JSON.stringify(data))
             listaAlqSalon = JSON.parse(localStorage.getItem('listaAlqSalon'))
             console.log(listaAlqSalon)
+            mostrarSocios()
         })
 } else if (localStorage.getItem('listaAlqSalon')) {
     listaAlqSalon = JSON.parse(localStorage.getItem('listaAlqSalon'))
     console.log(listaAlqSalon)
+    mostrarSocios()
 }
 
 
@@ -68,16 +70,62 @@ myFormSalon.addEventListener('submit', (event) => {
         })
         return
     }
-    const socio = {
-        numero: inputNumFunSalon.value,
-        nombre: inputNombreSalon.value,
-        apellido: inputApellidoSalon.value,
-        mail: inputMailSalon.value,
-        telefono: inputTelSalon.value,
-        reserva: inputFechaSalon.value
-    }
-    listaAlqSalon.push(socio)
-    localStorage.setItem('listaAlqSalon', JSON.stringify(listaAlqSalon))
-    myFormSalon.reset()
-    console.log(listaAlqSalon)
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+        title: 'Confirma la solicitud?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Reserva realizada.',
+                'Para confirmar que su reserva ha sido ingresada correctamente recargue la página, debería figurar en la lista de reservas confirmadas.'
+            )
+            const socio = {
+                numero: inputNumFunSalon.value,
+                nombre: inputNombreSalon.value,
+                apellido: inputApellidoSalon.value,
+                mail: inputMailSalon.value,
+                telefono: inputTelSalon.value,
+                reserva: inputFechaSalon.value
+            }
+            listaAlqSalon.push(socio)
+        
+            localStorage.setItem('listaAlqSalon', JSON.stringify(listaAlqSalon))
+            myFormSalon.reset()
+            console.log(listaAlqSalon)
+    
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelar',
+                'La solicitud ha sido cancelada.'
+            )
+        }
+    })
 })
+
+function mostrarSocios() {
+    let listaSalonParse = JSON.parse(localStorage.getItem('listaAlqSalon'))
+    console.log(listaSalonParse);
+
+    let containerSalon = document.querySelector('#Solicitudes')
+    listaSalonParse.forEach(socio => {
+        containerSalon.innerHTML += `<p>- reserva a nombre de socio numero: ${socio.numero}, ${socio.nombre} ${socio.apellido}.</p>`
+    })
+    
+    }
+    

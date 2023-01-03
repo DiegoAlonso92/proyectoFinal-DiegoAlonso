@@ -27,10 +27,12 @@ if (!localStorage.getItem('listaCanasta')) {
             localStorage.setItem('listaCanasta', JSON.stringify(data))
             listaCanasta = JSON.parse(localStorage.getItem('listaCanasta'))
             console.log(listaCanasta)
+            mostrarSocios()
         })
 } else if (localStorage.getItem('listaCanasta')) {
     listaCanasta = JSON.parse(localStorage.getItem('listaCanasta'))
     console.log(listaCanasta)
+    mostrarSocios()
 }
 
 
@@ -65,14 +67,58 @@ myFormCanasta.addEventListener('submit', (event) => {
         })
         return
     }
-    const socio = {
-        numero: inputNumFuncCan.value,
-        nombre_de_recien_nacido: inputNombreBebe.value,
-        apellidos_de_recien_nacido: inputApellidosBebe.value,
-    }
-    listaCanasta.push(socio)
-    localStorage.setItem('listaCanasta', JSON.stringify(listaCanasta))
-    myFormCanasta.reset()
-    console.log(listaCanasta)
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+        title: 'Confirma la solicitud?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Solicitud realizada.',
+                'Para confirmar que su solicitud ha sido ingresada correctamente recargue la página, debería figurar en la lista de solicitudes confirmadas.'
+            )
+            const socio = {
+                numero: inputNumFuncCan.value,
+                nombre_de_recien_nacido: inputNombreBebe.value,
+                apellidos_de_recien_nacido: inputApellidosBebe.value,
+            }
+            listaCanasta.push(socio)
+            localStorage.setItem('listaCanasta', JSON.stringify(listaCanasta))
+            myFormCanasta.reset()
+            console.log(listaCanasta)
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelar',
+                'La solicitud ha sido cancelada.'
+            )
+        }
+    })
+    
 })
-// Agregar un fetch que permita corroborar si el numero de socio se encuentra en la lista de socios activos.
+
+
+function mostrarSocios() {
+    let listaCanastaParse = JSON.parse(localStorage.getItem('listaCanasta'))
+    console.log(listaCanastaParse);
+
+    let containerCanasta = document.querySelector('#Solicitudes')
+    listaCanastaParse.forEach(socio => {
+        containerCanasta.innerHTML += `<p>- el número de socio: ${socio.numero}, ha solicitado una canasta para recién nacidos a nombre de ${socio.nombre_de_recien_nacido} ${socio.apellidos_de_recien_nacido}.</p>`
+    })
+    }
+    

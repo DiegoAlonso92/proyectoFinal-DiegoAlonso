@@ -21,10 +21,13 @@ if (!localStorage.getItem('listaSocios')) {
             localStorage.setItem('listaSocios', JSON.stringify(data))
             listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
             console.log(listaSocios)
+            mostrarSocios()
         })
 } else if (localStorage.getItem('listaSocios')) {
     listaSocios = JSON.parse(localStorage.getItem('listaSocios'))
     console.log(listaSocios)
+    mostrarSocios()
+
 }
 
 //  Formulario con evento para guardar en LS los datos de nuevos socios.
@@ -89,8 +92,8 @@ myForm.addEventListener('submit', (event) => {
     }).then((result) => {
         if (result.isConfirmed) {
             swalWithBootstrapButtons.fire(
-                'Usuario registrado',
-                'Su solicitud ha sido realizada.'
+                'Socio registrado',
+                'Para confirmar que ha sido ingresado correctamente recargue la página, debería figurar como socio registrado.'
             )
             if (inputSucursalItaliano.checked) {
                 crearSocio(inputNumFunc.value, inputNombre.value, inputApellido.value, inputSucursalItaliano.value, inputCargo.value, inputMail.value)
@@ -118,11 +121,14 @@ myForm.addEventListener('submit', (event) => {
 
 
 function mostrarSocios() {
-    // let listaSociosGet = localStorage.getItem('listaSocios', listaSocios);
     let listaSociosParse = JSON.parse(localStorage.getItem('listaSocios'))
-     console.log(listaSociosParse);
-    let inner = parrafoSociosRegistrados.innerHTML(listaSocios);
-    inner;
-}
+    console.log(listaSociosParse);
 
-mostrarSocios();
+    let containerSocios = document.querySelector('#SociosRegistrados')
+    listaSociosParse.forEach(socio => {
+        containerSocios.innerHTML += `<p>- ${socio.numero} ${socio.nombre} ${socio.apellido}.</p>`
+    })
+    
+    }
+    
+    
