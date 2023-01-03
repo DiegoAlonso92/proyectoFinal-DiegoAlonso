@@ -11934,7 +11934,7 @@ textarea.form-control-lg {
 .main-novedades h1, .main-novedades .h1 {
   display: flex;
   justify-content: center;
-  color: black;
+  color: red;
   margin: 15px;
 }
 .main-novedades h3, .main-novedades .h3 {
@@ -12022,7 +12022,7 @@ textarea.form-control-lg {
 .main-nuestraHistoria h1, .main-nuestraHistoria .h1 {
   display: flex;
   justify-content: center;
-  color: black;
+  color: red;
   margin: 15px;
 }
 .main-nuestraHistoria h3, .main-nuestraHistoria .h3 {
@@ -12048,7 +12048,7 @@ textarea.form-control-lg {
 .main-eventos h1, .main-eventos .h1 {
   display: flex;
   justify-content: center;
-  color: black;
+  color: red;
   margin: 15px;
 }
 .main-eventos h3, .main-eventos .h3 {
