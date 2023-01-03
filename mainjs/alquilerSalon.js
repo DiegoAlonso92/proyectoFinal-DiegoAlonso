@@ -124,7 +124,7 @@ function mostrarSocios() {
 
     let containerSalon = document.querySelector('#Solicitudes')
     listaSalonParse.forEach(socio => {
-        containerSalon.innerHTML += `<p>- reserva a nombre de socio numero: ${socio.numero}, ${socio.nombre} ${socio.apellido}.</p>`
+        containerSalon.innerHTML += `<p>- reserva a nombre de socio numero: ${socio.numero}, ${socio.nombre} ${socio.apellido} para la fecha ${socio.reserva}.</p>`
     })
     
     }
